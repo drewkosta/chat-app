@@ -13,7 +13,22 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.route('/classes/messages')
   .get(function(req, res) {
-    res.send('query', req.query);
+    let json = { results: [] };
+
+    fs.readFile(msgFile, function(err, data) {
+      if (err) { throw err; }
+
+      // iterate over each line in the messages file and JSON parse the message
+      // so it can be added as a object to the results array
+      if (data.toString().trim().length > 0) {
+        data.toString().trim().split('\n').forEach(function(msg) {
+          json.results.push( JSON.parse(msg) );
+        });
+      }
+
+      // finally, send the stringified object to the client
+      res.json( json );
+    });
   })
   .post(function(req, res) {
     // createdAt, roomname, username, text
