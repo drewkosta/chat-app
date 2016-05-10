@@ -41,9 +41,8 @@ app.route('/classes/messages')
 
     fs.appendFile(msgFile, JSON.stringify(message) + '\n', function (err) {
       if (err) { throw err; }
+      res.status(201).send();
     });
-
-    res.send();
   });
 
 
