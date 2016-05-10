@@ -36,7 +36,7 @@ app.route('/classes/messages')
       createdAt: Date.now(),
       roomname: req.body.roomname || '',
       username: req.body.username || '',
-      text: req.body.text || ''
+      message: req.body.message || ''
     };
 
     fs.appendFile(msgFile, JSON.stringify(message) + '\n', function (err) {
