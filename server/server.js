@@ -1,0 +1,13 @@
+'use strict';
+
+var express = require('express');
+var app = express();
+
+app.get('/classes/messages', function (req, res) {
+  res.send('Hello world!');
+});
+
+app.listen(3000, function () {
+  console.log('Example app on 3000');
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL3NlcnZlci1zcmMvc2VydmVyLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsSUFBSSxVQUFVLFFBQVEsU0FBUixDQUFkO0FBQ0EsSUFBSSxNQUFNLFNBQVY7O0FBRUEsSUFBSSxHQUFKLENBQVEsbUJBQVIsRUFBNkIsVUFBUyxHQUFULEVBQWMsR0FBZCxFQUFtQjtBQUM5QyxNQUFJLElBQUosQ0FBUyxjQUFUO0FBQ0QsQ0FGRDs7QUFJQSxJQUFJLE1BQUosQ0FBVyxJQUFYLEVBQWlCLFlBQVc7QUFDMUIsVUFBUSxHQUFSLENBQVkscUJBQVo7QUFDRCxDQUZEIiwiZmlsZSI6InNlcnZlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImxldCBleHByZXNzID0gcmVxdWlyZSgnZXhwcmVzcycpO1xubGV0IGFwcCA9IGV4cHJlc3MoKTtcblxuYXBwLmdldCgnL2NsYXNzZXMvbWVzc2FnZXMnLCBmdW5jdGlvbihyZXEsIHJlcykge1xuICByZXMuc2VuZCgnSGVsbG8gd29ybGQhJyk7XG59KTtcblxuYXBwLmxpc3RlbigzMDAwLCBmdW5jdGlvbigpIHtcbiAgY29uc29sZS5sb2coJ0V4YW1wbGUgYXBwIG9uIDMwMDAnKTtcbn0pO1xuIl19
