@@ -52,6 +52,17 @@ app.route('/classes/messages')
     });
   });
 
+app.get('/*', function(req, res) {
+  console.log('Request', 'client' + req.url);
+
+  fs.exists('client' + req.url, (exists) => {
+    if (exists) {
+      res.status(200).send('client' + req.url);
+    } else {
+      res.status(404).send();
+    }
+  });
+});
 
 app.listen(3000, function() {
   console.log('Example app on 3000');
