@@ -11,6 +11,13 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
+// allow cross origin
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 app.route('/classes/messages')
   .get(function(req, res) {
     let json = { results: [] };
@@ -36,7 +43,7 @@ app.route('/classes/messages')
       createdAt: Date.now(),
       roomname: req.body.roomname || '',
       username: req.body.username || '',
-      message: req.body.message || ''
+      text: req.body.text || ''
     };
 
     fs.appendFile(msgFile, JSON.stringify(message) + '\n', function (err) {
