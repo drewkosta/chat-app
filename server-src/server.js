@@ -6,6 +6,10 @@ let msgFile = 'server/messages.json';
 let express = require('express');
 let app = express();
 
+// serve static files
+app.use(express.static(__dirname + '/../client'));
+app.use('/node_modules', express.static(__dirname + '/../node_modules'));
+
 // express body parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
@@ -51,18 +55,6 @@ app.route('/classes/messages')
       res.status(201).send();
     });
   });
-
-app.get('/*', function(req, res) {
-  console.log('Request', 'client' + req.url);
-
-  fs.exists('client' + req.url, (exists) => {
-    if (exists) {
-      res.status(200).send('client' + req.url);
-    } else {
-      res.status(404).send();
-    }
-  });
-});
 
 app.listen(3000, function() {
   console.log('Example app on 3000');
